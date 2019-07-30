@@ -13,3 +13,4 @@ grep -E "^B" cities.txt | wc -l
 grep -Eo "d" cities.txt | wc -l
 grep -E "(\w)\1$" cities.txt
 grep -Ei "^(\w)(\w).\2\1$" cities.txt
+grep -Pi "^((\w)(?1)\2|.?)$" cities.txt
