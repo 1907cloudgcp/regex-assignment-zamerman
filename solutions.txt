@@ -1,0 +1,15 @@
+grep -E "^Z" cities.txt
+grep -E "gan$" cities.txt
+grep -E "^[ADE]" cities.txt
+grep -E "^[ADE]" cities.txt | wc -l
+grep -Ei "^[ -]*.[ -]*a[ -]*r" cities.txt
+grep -Ei "^[ -]*.[ -]*a[ -]*r" cities.txt | wc -l
+grep -Ei "\<.ar" cities.txt
+grep -Ei "\<.ar" cities.txt | wc -l
+grep -E "^[^C]" cities.txt
+grep -E "^[^C]" cities.txt | wc -l
+grep -E "[^ ]{14}" cities.txt
+grep -E "^B" cities.txt | wc -l
+grep -Eo "d" cities.txt | wc -l
+grep -E "(\w)\1$" cities.txt
+grep -Ei "^(\w)(\w).\2\1$" cities.txt

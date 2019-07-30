@@ -1,2 +1,0 @@
-grep -E "^Z" cities.txt
-grep -E "gan$" cities.txt
