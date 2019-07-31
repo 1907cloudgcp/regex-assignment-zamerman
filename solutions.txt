@@ -1,60 +1,73 @@
 #1
---Searches for lines beginning with letter "Z"
+--Searches cities.txt for lines beginning with letter "Z"
 grep "^Z" cities.txt
 
+
 #2
---Searches for lines ending with letters "gan"
+--Searches cities.txt for lines ending with letters "gan"
 grep "gan$" cities.txt
 
+
 #3
---Searches for lines starting with either letter "A", "D", or "E"
+--Searches cities.txt for lines starting with either letter "A", "D", or "E"
 grep "^[ADE]" cities.txt
 
+
 #4
---Searches for lines where the second letter is "a" and the third letter is "r" ignoring capitalization
+--Searches cities.txt for lines where the second letter is "a" and the third letter is "r" ignoring
+	capitalization
 --Doesn't consider spaces or dashes to be letters and because of this it skips over them in between
 	letters as well as the beginning of the line
---From the # of results doesn't appear to be the preferred solution
+--From the # of results provided by the problem prompt doesn't appear to be the preferred solution
 grep -i "^[ -]*[^ -][ -]*a[ -]*r" cities.txt
 
 --This appears to be the preferred solution
 --Doesn't seem quite right from my perspective as second or third letter should be counted
 	from the beginning of the line, not for each individual word that makes up a city name
---Searches for lines with words that have the second and third letter be "a" and "r" respectively
+--Searches cities.txt for lines with words in which the second and third letters are "a" and "r"
+	respectively
 --Ignores capitalization
-grep -i "\<.ar" cities.txt
+grep -i "\<[a-z]ar" cities.txt
+
 
 #5
---Searches for lines that do not start with the letter "C"
+--Searches cities.txt for lines that do not start with the letter "C"
 grep "^[^C]" cities.txt
+
 
 #6
 --Seems to be the solution described by the problem sheet
---Searches for any continuous series of characters as long as they are not a space
+--Searches cities.txt for any continuous series of characters as long as they are not a space
 grep -E "[^ ]{14}" cities.txt
 
 --Below is what looks to be a better solution which takes into account the possibilites of city
 	names being divided by spaces and dashes and counts only actual letters as characters
---Searches for lines with 14 or more characters that are not spaces and dashes which can be separated
-	by any number of spaces or dashes
+--Searches cities.txt for lines with 14 or more characters that are not spaces and dashes which
+	can be separated by any number of spaces or dashes
 grep -E "([^ -][ -]*){14}" cities.txt
 
+
 #7
---Searches for lines starting with the letter B and feeds them into wc to determine number of cities
+--Searches cities.txt for lines starting with the letter B and feeds them into wc to determine
+	number of cities
 grep "^B" cities.txt | wc -l
 
+
 #8
---Searches for the letter d showing only the matched parts and printing out the matches to their
-	own separate lines, then counts the number of lines. 
+--Searches cities.txt for the letter d showing only the matched parts and printing out the matches
+	to their own separate lines, then counts the number of lines. 
 grep -o "d" cities.txt | wc -l
+
 
 #9
 --Searches cities.txt using backreferences for any cities that end in repeated letters.
 grep -Ei "([a-z])\1$" cities.txt
 
+
 #10
 --Searches cities.txt for five letter palindrome cities with backreferences ignoring capitalization
 grep -Ei "^([a-z])([a-z])[a-z]\2\1$" cities.txt
+
 
 #10 extra
 --Searches cities.txt using Perl regex and specifically recursion to check that the outer letters
